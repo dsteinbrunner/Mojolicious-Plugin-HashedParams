@@ -1,0 +1,34 @@
+=encoding utf8
+
+=head1 NAME
+
+Mojolicious::Plugin::HeshedParams - Transformation request parameters into a hash and multi-hash
+
+=head1 SYNOPSIS
+
+  plugin 'HeshedParams';
+
+  # Transmit params:
+  /route?message[body]=PerlOrDie&message[task][id]=32
+    or
+  <input type="text" name="message[task][id]" value="32"> 
+
+  get '/route' => sub {
+    my $self = shift;
+    # you can also use permit parameters
+    $self->hparams( qw/message/ );
+    # return all parameters in the hash
+    $self->hparams();
+  };
+
+=head1 AUTHOR
+
+Grishkovelli L<grishkovelli@gmail.com>
+
+=head1 COPYRIGHT
+
+Copyright (C) 2013, Grishkovelli.
+
+This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
+
+=cut
