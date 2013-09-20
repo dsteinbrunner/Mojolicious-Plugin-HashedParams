@@ -10,7 +10,7 @@ use lib "$Bin/../lib";
 use Mojolicious::Lite;
 use_ok( 'Mojolicious::Plugin::HashedParams' );
 
-plugin 'HeshedParams';
+plugin 'HashedParams';
 
 get '/one' => sub {
   my $self = shift;
