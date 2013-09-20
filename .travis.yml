@@ -1,0 +1,12 @@
+language: perl
+perl:
+  - "5.18"
+  - "5.16"
+  - "5.14"
+before_install:
+  - cpanm -n Mojolicious
+script: perl Build.PL && ./Build && ./Build test
+notifications:
+  email:
+    on_success: always
+    on_failure: always
