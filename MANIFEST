@@ -1,5 +1,6 @@
-Makefile.PL
-MANIFEST
+Build.PL
+Changes
+lib/Mojolicious/Plugin/HashedParams.pm
+MANIFEST			This list of files
 README.pod
 t/main.t
-lib/Mojolicious-Plugin-HashedParams.pm

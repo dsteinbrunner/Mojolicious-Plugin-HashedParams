@@ -1,0 +1,8 @@
+Revision history for Mojolicious-Plugin-HashedParams
+
+0.02    20.09.2013
+        Turn on unlimited nesting
+        
+0.01    19.09.2013
+        First version
+
