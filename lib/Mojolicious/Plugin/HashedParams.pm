@@ -2,7 +2,7 @@ package Mojolicious::Plugin::HashedParams;
 
 use Mojo::Base 'Mojolicious::Plugin';
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub register {
   my ( $plugin, $app ) = @_;
@@ -12,8 +12,9 @@ sub register {
       my ( $self, @permit ) = @_;
 
       if ( !$self->stash( 'hparams' ) ) {
-        my $ret   = {};
         my $hprms = $self->req->params->to_hash;
+        my $index = 0;
+        my @array;
 
         foreach my $p ( keys %$hprms ) {
           my @list;
@@ -22,11 +23,17 @@ sub register {
             push @list, $n if length( $n ) > 0;
           }
 
-          if    ( $#list == 0 ) { $ret->{ $list[0] }                         = $hprms->{$p}; }
-          elsif ( $#list == 1 ) { $ret->{ $list[0] }{ $list[1] }             = $hprms->{$p}; }
-          elsif ( $#list == 2 ) { $ret->{ $list[0] }{ $list[1] }{ $list[2] } = $hprms->{$p}; }
-          else                  { }
+          map $array[$index] .= "{$list[$_]}", 0 .. $#list;
+
+          $array[$index] .= " = $hprms->{$p};";
+          $index++;
         }
+
+        my $code = 'my $h = {};';
+        map { $code .= "\$h->$_" } @array;
+        $code .= '$h;';
+
+        my $ret = eval $code;
 
         if ( %$ret ) {
           if ( @permit ) {

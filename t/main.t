@@ -26,12 +26,12 @@ get '/two' => sub {
 
 get '/tree' => sub {
   my $self = shift;
-  my $prms = $self->hparams('message');
-  # print Dumper $prms;
+  my $prms = $self->hparams( 'message' );
   $self->render( text => qq~$prms->{message}{body} writen by $prms->{message}{author}~ );
 };
 
 my $t = Test::Mojo->new;
-$t->get_ok( '/one?lim[per_m]=5&lim[per_h]=30&lim[per_d]=100' )->content_is('Lim per_m: 5 per_h: 30 per_d: 100');
-$t->get_ok( '/two?message[body]=BlaBlaBla&message[task][id]=32' )->content_is('[32]Msg:BlaBlaBla');
-$t->get_ok( '/tree?message[body]=USAStopWars&message[author]=Perl&post[id]=31337&post[name]=StopWar' )->content_is('USAStopWars writen by Perl');
+$t->get_ok( '/one?lim[per_m]=5&lim[per_h]=30&lim[per_d]=100' )->content_is( 'Lim per_m: 5 per_h: 30 per_d: 100' );
+$t->get_ok( '/two?message[body]=BlaBlaBla&message[task][id]=32' )->content_is( '[32]Msg:BlaBlaBla' );
+$t->get_ok( '/tree?message[body]=USAStopWars&message[author]=Perl&post[id]=31337&post[name]=StopWar' )
+    ->content_is( 'USAStopWars writen by Perl' );
