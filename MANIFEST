@@ -2,4 +2,4 @@ Makefile.PL
 MANIFEST
 README.pod
 t/main.t
-lib/Mojolicious-Plugin-HeshedParams.pm
+lib/Mojolicious-Plugin-HashedParams.pm

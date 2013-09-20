@@ -1,4 +1,4 @@
-package Mojolicious::Plugin::HeshedParams;
+package Mojolicious::Plugin::HashedParams;
 
 use Mojo::Base 'Mojolicious::Plugin';
 
@@ -54,11 +54,11 @@ __END__
 
 =head1 NAME
 
-Mojolicious::Plugin::HeshedParams - Transformation request parameters into a hash and multi-hash
+Mojolicious::Plugin::HashedParams - Transformation request parameters into a hash and multi-hash
 
 =head1 SYNOPSIS
 
-  plugin 'HeshedParams';
+  plugin 'HashedParams';
 
   # Transmit params:
   /route?message[body]=PerlOrDie&message[task][id]=32

@@ -8,7 +8,7 @@ use FindBin '$Bin';
 use lib "$Bin/../lib";
 
 use Mojolicious::Lite;
-use_ok( 'Mojolicious::Plugin::HeshedParams' );
+use_ok( 'Mojolicious::Plugin::HashedParams' );
 
 plugin 'HeshedParams';
 
