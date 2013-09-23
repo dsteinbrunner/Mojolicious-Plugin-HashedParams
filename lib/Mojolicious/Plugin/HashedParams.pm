@@ -83,7 +83,7 @@ Mojolicious::Plugin::HashedParams - Transformation request parameters into a has
 
 =head1 AUTHOR
 
-Grishkovelli L<grishkovelli@gmail.com>
+Grishkovelli L<grishkovelli@gmail.com>, L<Git Repository|https://github.com/grishkovelli/Mojolicious-Plugin-HashedParams>
 
 =head1 COPYRIGHT
 
