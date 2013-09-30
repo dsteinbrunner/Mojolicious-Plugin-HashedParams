@@ -1,5 +1,8 @@
 Revision history for Mojolicious-Plugin-HashedParams
 
+0.04    30.09.2013
+        Removing invalid characters from a parameters names
+
 0.03    21.09.2013
         Fixed error
 
